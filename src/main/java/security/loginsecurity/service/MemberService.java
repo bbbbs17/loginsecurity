@@ -55,7 +55,10 @@ public class MemberService {
         return memberRepository.findByEmail(email).isPresent();
     }
 
+    public void updatePassword(String email, String newPassword) {
+        Member member = memberRepository.findByEmail(email)
+                .orElseThrow(() -> new IllegalArgumentException("등록되지 않은 이메일입니다: " + email));
+        member.setPassword(newPassword);  // 암호화된 비밀번호 설정
+        memberRepository.save(member);
+    }
 }
-
-
-

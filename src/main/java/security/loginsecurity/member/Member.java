@@ -43,7 +43,7 @@ public class Member implements UserDetails {
         this.name=name;
     }
 
-    
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -90,7 +90,10 @@ public class Member implements UserDetails {
     public void updatePassword(String password, PasswordEncoder passwordEncoder) {
         this.password = passwordEncoder.encode(password);
     }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
 
 }
-

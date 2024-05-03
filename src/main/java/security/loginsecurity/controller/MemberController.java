@@ -16,8 +16,8 @@ import security.loginsecurity.service.MemberService;
 @Controller
 public class MemberController {
 
-  private final MemberService memberService;
-  private final MemberRepository memberRepository;
+    private final MemberService memberService;
+    private final MemberRepository memberRepository;
 
     public MemberController(MemberService memberService, MemberRepository memberRepository) {
         this.memberService = memberService;
@@ -27,7 +27,7 @@ public class MemberController {
 
     @PostMapping("/member")
     public String signup(MemberDTO memberDTO){
-       memberService.save(memberDTO);
+        memberService.save(memberDTO);
         return "redirect:/login";
     }
     @GetMapping("/login")
@@ -52,7 +52,7 @@ public class MemberController {
     }
 
 
-   //회원업데이트
+    //회원업데이트
     @GetMapping("/edit-profile")
     public String showEditProfileForm(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -81,5 +81,3 @@ public class MemberController {
     }
 
 }
-
-
